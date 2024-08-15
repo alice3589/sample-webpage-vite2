@@ -1,4 +1,4 @@
-/* src/app.css */
+/* src/App.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -12,8 +12,43 @@ h1 {
   margin: 20px 0;
 }
 
-h2 {
-  margin: 20px 0;
+.navbar {
+  position: relative;
+  width: 100%;
+  background-color: #333;
+  color: white;
+}
+
+.hamburger {
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.menu.active {
+  display: flex;
+}
+
+.menu li {
+  margin: 10px 0;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+}
+
+.menu li a:hover {
+  text-decoration: underline;
 }
 
 .list {
@@ -35,5 +70,3 @@ h2 {
   width: 100%;
   height: auto;
 }
-
-  

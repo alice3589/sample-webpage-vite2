@@ -1,5 +1,7 @@
 // src/App.jsx
-import React from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
 import './App.css';
 
 // 商品データのサンプル
@@ -58,16 +60,47 @@ const categorizedProducts = categories.map(category => ({
 
 // メインコンポーネント
 const App = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div>
-      <h1>先生予定表一覧</h1>
-      {categorizedProducts.map((group, index) => (
-        <div key={index}>
-          <h2>{group.category}</h2>
-          <ProductList products={group.products} />
-        </div>
-      ))}
-    </div>
+    <Router>
+      <div>
+        <h1>先生予定表一覧</h1>
+        <nav className="navbar">
+          <FaBars className="hamburger" onClick={toggleMenu} />
+          <ul className={menuOpen ? "menu active" : "menu"}>
+            <li>
+              <Link to="/" onClick={toggleMenu}>一覧</Link>
+            </li>
+            {categories.map((category, index) => (
+              <li key={index}>
+                <Link to={`/${category}`} onClick={toggleMenu}>{category}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={
+            <div>
+              <h2>一覧</h2>
+              <ProductList products={products} />
+            </div>
+          } />
+          {categorizedProducts.map((group, index) => (
+            <Route key={index} path={`/${group.category}`} element={
+              <div>
+                <h2>{group.category}</h2>
+                <ProductList products={group.products} />
+              </div>
+            } />
+          ))}
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
