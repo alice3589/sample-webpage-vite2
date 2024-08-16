@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import './App.css';
 
-// 商品データのサンプル
+// 先生データのサンプル
 const products = [
   { id: 1, name: "先生A", category: "教務部", image: "https://via.placeholder.com/150", link: "https://via.placeholder.com/300" },
   { id: 2, name: "先生B", category: "教務部", image: "https://via.placeholder.com/150", link: "https://via.placeholder.com/300" },
@@ -27,7 +27,7 @@ const products = [
   { id: 20, name: "先生T", category: "共通教育", image: "https://via.placeholder.com/150", link: "https://via.placeholder.com/300" },
 ];
 
-// 商品カードコンポーネント
+// 先生カードコンポーネント
 const ProductCard = ({ product }) => {
   return (
     <div className="card">
@@ -39,7 +39,7 @@ const ProductCard = ({ product }) => {
   );
 };
 
-// 商品リストコンポーネント
+// 背㎜制リストコンポーネント
 const ProductList = ({ products }) => {
   return (
     <div className="list">
@@ -50,7 +50,7 @@ const ProductList = ({ products }) => {
   );
 };
 
-// カテゴリー別の商品リスト
+// カテゴリー別の先生リスト
 const categories = ["教務部", "学生部", "寮務部", "共通教育"];
 const categorizedProducts = categories.map(category => ({
   category,
