@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
@@ -67,7 +66,7 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <Router basename="/sample-webpage-vite2">
       <div>
         <h1>先生予定表一覧</h1>
         <nav className="navbar">
