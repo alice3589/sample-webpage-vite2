@@ -39,7 +39,7 @@ const ProductCard = ({ product }) => {
   );
 };
 
-// 背㎜制リストコンポーネント
+// 先生リストコンポーネント
 const ProductList = ({ products }) => {
   return (
     <div className="list">
